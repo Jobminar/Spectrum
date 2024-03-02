@@ -3,7 +3,7 @@ import "./AddCart.css";
 import Swal from "sweetalert2";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router-dom";
-
+import LazyLoad from "react-lazy-load";
 const ShoppingCart = () => {
   const navigate = useNavigate();
   const [showPayment, setShowPayment] = useState(false);
@@ -38,13 +38,14 @@ const ShoppingCart = () => {
         const userIds = userData._id;
 
         const response = await fetch(
-          `http://localhost:4000/getCartItemById/${userIds}`
+          `https://sgl-be.onrender.com/getCartItemById/${userIds}`
         );
 
         const data = await response.json();
 
         if (response.ok) {
           setCartItems(data);
+          console.log("the data from api", data);
           setIsLoading(false);
         } else {
           const errorMessage = await response.text();
@@ -97,7 +98,7 @@ const ShoppingCart = () => {
     try {
       // Make a request to the delete API endpoint
       const response = await fetch(
-        `http://localhost:4000/deletecartItems/${index}`,
+        `https://sgl-be.onrender.com/deletecartItems/${itemId}`,
         {
           method: "DELETE",
           headers: {
@@ -105,7 +106,7 @@ const ShoppingCart = () => {
           },
         }
       );
-  
+
       if (response.ok) {
         // If deletion on the server is successful, update the local state
         const updatedCart = [...cartItems];
@@ -125,7 +126,7 @@ const ShoppingCart = () => {
       // Handle the error, show an error message, or take appropriate action
     }
   };
-  
+
   const handleProceedToCheckout = () => {
     const userdata = JSON.parse(sessionStorage.getItem("userData"));
     const username = userdata.email;
@@ -147,7 +148,7 @@ const ShoppingCart = () => {
 
     const orderDetails = {
       totalItems,
-    
+
       shipping,
 
       username,
@@ -163,11 +164,10 @@ const ShoppingCart = () => {
 
   const postUserOrder = async (orderDetails) => {
     setLoading(true);
-    console.log(orderDetails,'this orderDetails sent');
+    console.log(orderDetails, "this orderDetails sent");
     try {
       const response = await fetch(
-      
-        "http://localhost:4000/postuserorder",
+        "https://sgl-be.onrender.com/postuserorder",
         {
           method: "POST",
           headers: {
@@ -181,7 +181,18 @@ const ShoppingCart = () => {
         const responseData = await response.json();
         console.log("Order placed successfully:", responseData);
         alert("Order successfully");
-        await deleteCartData(orderDetails.userID);
+        const userData = JSON.parse(sessionStorage.getItem("userData"));
+
+        if (!userData || !userData._id) {
+          console.error(
+            "User data or user ID not available in sessionStorage."
+          );
+          return;
+        }
+
+        const userId = userData._id;
+
+        await deleteCartData(orderDetails.userId);
         // You can handle success, show a confirmation message, or navigate to a success page
       } else {
         console.error(
@@ -199,7 +210,35 @@ const ShoppingCart = () => {
     }
   };
 
- 
+  const deleteCartData = async (userId) => {
+    try {
+      const response = await fetch(
+        "https://sgl-be.onrender.com/deleteCartData",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userId }),
+        }
+      );
+
+      if (response.ok) {
+        console.log("Cart data deleted successfully");
+        // You can handle success, show a confirmation message, or take appropriate action
+      } else {
+        console.error(
+          "Failed to delete cart data. Server returned:",
+          response.status,
+          response.statusText
+        );
+        // Handle the error, show an error message, or take appropriate action
+      }
+    } catch (error) {
+      console.error("Error deleting cart data:", error);
+      // Handle the error, show an error message, or take appropriate action
+    }
+  };
 
   const calculateTotal = () => {
     return cartItems.reduce(
@@ -254,11 +293,13 @@ const ShoppingCart = () => {
               {cartItems.map((item, index) => (
                 <div className="cart-item" key={item.id}>
                   <div className="cart-item-image">
-                    <img
-                      src={`data:image/png;base64,${item.image}`}
-                      alt={item.name}
-                      style={{ height: "200px", width: "200px" }}
-                    />
+                    <LazyLoad height={200} offset={100}>
+                      <img
+                        src={`data:image/png;base64,${item.image}`}
+                        alt={item.name}
+                        style={{ height: "200px", width: "200px" }}
+                      />
+                    </LazyLoad>
                   </div>
                   <div className="cart-item-details">
                     <h5 className="cart-item-name">{item.name}</h5>
@@ -282,10 +323,12 @@ const ShoppingCart = () => {
                       >
                         -
                       </button>
-                      <button onClick={() => deleteItem(item._id, index)} className="btn btn-danger">
+                      <button
+                        onClick={() => deleteItem(index, item._id)}
+                        className="btn btn-danger"
+                      >
                         Remove
-                     </button>
-
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -1,10 +1,9 @@
-
 import { useEffect, useState } from "react";
 import "./CartButton.css";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
- 
+
 const AddCart = ({ onAddToCart, onQuantityChange }) => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
@@ -15,13 +14,13 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
       setUserData(JSON.parse(storedUserData));
     }
   }, []);
- 
+
   const addToWishlist = async () => {
     if (userData) {
       const selectedItem = JSON.parse(sessionStorage.getItem("selectedItem"));
       const selecteduserid = JSON.parse(sessionStorage.getItem("userData"));
       const seletedeid = selecteduserid._id;
- 
+
       if (selectedItem) {
         setLoading(true);
         const requestData = {
@@ -33,17 +32,17 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
           colour: selectedItem.colour,
           units: selectedItem.units,
           shape: selectedItem.shape,
-          dimensions: selectedItem.dimensions,
+          dimensions: selectedItem.dimensions || "No Data",
           transparency: selectedItem.transparency || "No Data",
           hardness: selectedItem.hardness || "No Data",
           size: selectedItem.size || 0,
           clarity: selectedItem.clarity || "No Data",
           subtype: selectedItem.subtype || "No Data",
         };
- 
+
         try {
           const response = await fetch(
-            "http://localhost:4000/createwishlist", // Corrected URL
+            "https://sgl-be.onrender.com/createwishlist", // Corrected URL
             {
               method: "POST",
               headers: {
@@ -52,7 +51,7 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
               body: JSON.stringify(requestData),
             }
           );
- 
+
           if (response.ok) {
             onAddToCart(cartQuantity);
             Swal.fire({
@@ -96,15 +95,15 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
       window.location.href = "/login";
     }
   };
- 
+
   const [cartQuantity, setCartQuantity] = useState(1);
- 
+
   const incrementCart = () => {
     setCartQuantity(cartQuantity + 1);
     animateButton();
     onQuantityChange(cartQuantity + 1);
   };
- 
+
   const decrementCart = () => {
     if (cartQuantity > 0) {
       setCartQuantity(cartQuantity - 1);
@@ -112,13 +111,13 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
       onQuantityChange(cartQuantity - 1);
     }
   };
- 
+
   const handleAddToCart = async () => {
     if (userData) {
       const selectedItem = JSON.parse(sessionStorage.getItem("selectedItem"));
       const selectedUserId = JSON.parse(sessionStorage.getItem("userData"));
       const selectedId = selectedUserId._id; // corrected the variable name
-  
+
       if (selectedItem) {
         setLoading(true);
         const requestData = {
@@ -130,26 +129,26 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
           colour: selectedItem.colour,
           units: selectedItem.units,
           shape: selectedItem.shape,
-          dimensions: selectedItem.dimensions,
+          dimensions: selectedItem.dimensions || "No Data",
           transparency: selectedItem.transparency || "No Data",
           hardness: selectedItem.hardness || 0,
           size: selectedItem.size || 0,
           clarity: selectedItem.clarity || "No Data",
           subtype: selectedItem.subtype || "No Data",
         };
-  
+
         try {
           console.log("Sending request data:", requestData);
-          const response = await fetch("http://localhost:4000/create", {
+          const response = await fetch("https://sgl-be.onrender.com/create", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify(requestData),
           });
-  
+
           console.log("Response from server:", response);
-  
+
           if (response.ok) {
             onAddToCart(cartQuantity);
             Swal.fire({
@@ -193,11 +192,10 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
       window.location.href = "/login";
     }
   };
-  
- 
+
   const animateButton = () => {
     const buttonElement = document.getElementById("add-to-cart-button");
- 
+
     if (buttonElement) {
       buttonElement.style.backgroundColor = "#FF6347";
       setTimeout(() => {
@@ -205,7 +203,7 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
       }, 300);
     }
   };
- 
+
   const buttonStyle = {
     backgroundColor: "#FFA500",
     color: "#FFFFFF",
@@ -218,7 +216,7 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
     display: "inline-flex",
     alignItems: "center",
   };
- 
+
   const wishlistButtonStyle = {
     backgroundColor: "#FFD700",
     color: "#FFFFFF",
@@ -232,17 +230,17 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
     display: "inline-flex",
     alignItems: "center",
   };
- 
+
   wishlistButtonStyle[":hover"] = {
     backgroundColor: "#FFEC8B",
     transform: "scale(1.05)",
   };
- 
+
   buttonStyle[":hover"] = {
     backgroundColor: "#FF8000",
     transform: "scale(1.05)",
   };
- 
+
   return (
     <div className="container mt-3">
       <div
@@ -270,7 +268,7 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
             >
               <i className="fas fa-heart"></i>
             </button>
- 
+
             <button
               style={{
                 ...buttonStyle,
@@ -317,11 +315,10 @@ const AddCart = ({ onAddToCart, onQuantityChange }) => {
     </div>
   );
 };
- 
+
 AddCart.propTypes = {
   onAddToCart: PropTypes.func.isRequired,
   onQuantityChange: PropTypes.func.isRequired,
 };
- 
+
 export default AddCart;
- 

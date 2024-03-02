@@ -15,7 +15,7 @@ const AdminLoginForm = () => {
     // Check if the username and password are correct
     if (username === "admin" && password === "password") {
       navigate("/admin/adminhome");
-      sessionStorage.setItem("admin-username",username)
+      sessionStorage.setItem("admin-username", username);
     } else {
       // Handle incorrect username or password
       alert("Invalid username or password");

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InventoryChart from "./InventoryChart";
 import AdminSideNav from "./AdminSide";
 import { useNavigate } from "react-router-dom";

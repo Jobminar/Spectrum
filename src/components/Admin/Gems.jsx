@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./gems.css";
 import Swal from "sweetalert2";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 
-
 const Gems = () => {
-  const navigate =useNavigate()
+  const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     subtype: "Precious",
-    price: "22",
-    weight: "",
+    weight: 0,
     units: "Carat",
     shape: "",
     colour: "",
@@ -21,7 +19,7 @@ const Gems = () => {
     // hardness: "",
     // microscopicexamination: "",
     image1: null,
-    image2:null
+    image2: null,
   });
 
   const [inventoryData, setInventoryData] = useState([]);
@@ -65,6 +63,7 @@ const Gems = () => {
       image1: selectedImage,
     }));
   };
+
   const handleImageChange2 = (e) => {
     const selectedImage = e.target.files[0];
     setData((prevData) => ({
@@ -80,38 +79,39 @@ const Gems = () => {
       const formData = new FormData();
       formData.append("subtype", data.subtype);
       formData.append("name", data.name);
-      formData.append("weight", data.weight);
+      formData.append("weight", parseInt(data.weight, 10)); // Parse weight to integer
       formData.append("units", data.units);
       formData.append("shape", data.shape);
-      formData.append("price", data.price);
+      formData.append("price", data.price); // Add the price field
       formData.append("colour", data.colour);
       formData.append("description", data.description);
       formData.append("dimensions", data.dimensions);
-      formData.append("image1", data.image1);
-      formData.append("image2", data.image2);
+      // Append file name to the FormData
+      formData.append("image1", data.image1, data.image1.name);
+      formData.append("image2", data.image2, data.image2.name);
+
       setInventoryData([...inventoryData, data]);
 
-      const response = await fetch("https://sgl-be.onrender.com/postgems", {
+      const response = await fetch(`https://sgl-be.onrender.com/postgems`, {
         method: "POST",
         body: formData,
       });
-      console.log(formData)
 
       if (response.ok) {
-        console.log("Form submitted successfully!",response);
+        console.log("Form submitted successfully!", response);
         alert("Successfully added the data");
         setData({
           name: "",
           subtype: "Precious",
           price: "22",
-          weight: "",
+          weight: 0,
           units: "Carat",
           shape: "",
           colour: "",
           description: "",
           dimensions: "",
           image1: null,
-          image2:null
+          image2: null,
         });
         await Swal.fire({
           icon: "success",
@@ -120,9 +120,8 @@ const Gems = () => {
           timer: 1500,
         });
       } else {
-        
         console.error("Form submission failed. Status:", response.status);
-        throw new Error("Item addition failed")
+        throw new Error("Item addition failed");
       }
     } catch (error) {
       console.error("An error occurred during form submission:", error);
@@ -133,11 +132,15 @@ const Gems = () => {
       });
     }
   };
+
   const handleDelete = async (id, index) => {
     try {
-      const response = await fetch(`https://sgl-be.onrender.com/deletegems/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://sgl-be.onrender.com/deletegems/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (response.ok) {
         console.log("Item deleted successfully!");
@@ -206,7 +209,7 @@ const Gems = () => {
         <td>
           <button
             className="btn btn-danger btn-sm"
-            onClick={() => handleDelete( item._id,index)}
+            onClick={() => handleDelete(item._id, index)}
           >
             Delete
           </button>
@@ -214,134 +217,190 @@ const Gems = () => {
       </tr>
     ));
   };
-  const da=inventoryData.slice(-1)[0]
-  console.log(da,"lat")
+  const da = inventoryData.slice(-1)[0];
+  console.log(da, "lat");
   return (
     <div>
-            <ArrowBackIcon onClick={()=>navigate("/admin/inventoryitem")} style={{width:"100px",height:"50px",marginTop:"10px"}} />
-            <center>
-      <form className="form-123" style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" }}>
-        <div className="card-123" style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" }}>
-        <h2 style={{borderBottom:"2px",borderStyle:"solid",borderColor:"gold",borderTop:"none",borderRight:"none",borderLeft:"none"}}>Gems Inventory</h2>
-        <label htmlFor="name" className="form-label mb-0"> Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={data.name}
-            onChange={handleChange}
-            className="input"
-            placeholder="Name"
-          />
-          <label htmlFor="subtype" className="form-label mb-0 mt-2"> Subtype</label>
-          <select
-            style={{ width: "100%", height: "45px", borderRadius: "5px" }}
-            name="subtype"
-            value={data.subtype}
-            onChange={handleChange}
+      <ArrowBackIcon
+        onClick={() => navigate("/admin/inventoryitem")}
+        style={{ width: "100px", height: "50px", marginTop: "10px" }}
+      />
+      <center>
+        <form
+          className="form-123"
+          style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" }}
+        >
+          <div
+            className="card-123"
+            style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" }}
           >
-            <option value="Precious">Precious</option>
-            <option value="Semi-Precious">Semi-Precious</option>
-          </select>
-          <label htmlFor="weight" className="form-label  mt-4"> Weight</label>
-
-          <input
-            type="text"
-            placeholder="Weight"
-            name="weight"
-            value={data.weight}
-            onChange={handleChange}
-            className="input"
-          />
-<label htmlFor="weight" className="form-label mb-0 mt-4"> Units</label>
-
-          <select
-            style={{ width: "100%", height: "45px", borderRadius: "5px" }}
-            name="units"
-            value={data.units}
-            onChange={handleChange}
-          >
-            <option value="Carat">Carat (metric; 1 carat=0.2gm)</option>
-          </select>
-          <label htmlFor="weight" className="form-label mb-0 mt-4"> Shape</label>
-
-          <input
-            type="text"
-            name="shape"
-            value={data.shape}
-            onChange={handleChange}
-            className="input"
-            placeholder="Shape"
-          />
-<label htmlFor="weight" className="form-label mb-0 mt-4"> Colour</label>
-
-          <input
-            type="text"
-            name="colour"
-            value={data.colour}
-            onChange={handleChange}
-            className="input"
-            placeholder="Colour"
-          />
-<label htmlFor="weight" className="form-label mb-0 mt-4"> Description</label>
-
-          <input
-            type="text"
-            name="description"
-            value={data.description}
-            onChange={handleChange}
-            className="input"
-            placeholder="Transparency, Hardness"
-          />
-<label htmlFor="weight" className="form-label mb-0 mt-4"> dimensions</label>
-
-          <input
-            type="text"
-            name="dimensions"
-            value={data.dimensions}
-            onChange={handleChange}
-            className="input"
-            placeholder="dimensions"
-          />               
-          <div className="input-group">
-            <label className="input-group-text" htmlFor="fileInput">
-              Choose File
+            <h2
+              style={{
+                borderBottom: "2px",
+                borderStyle: "solid",
+                borderColor: "gold",
+                borderTop: "none",
+                borderRight: "none",
+                borderLeft: "none",
+              }}
+            >
+              Gems Inventory
+            </h2>
+            <label htmlFor="name" className="form-label mb-0">
+              {" "}
+              Name
             </label>
             <input
-              type="file"
-              accept="image/*"
-              className="form-control"
-              id="fileInput"
-              style={{ display: "none" }}
-              onChange={handleImageChange}
+              type="text"
+              name="name"
+              id="name"
+              value={data.name}
+              onChange={handleChange}
+              className="input"
+              placeholder="Name"
             />
-          </div>
-          <div className="input-group">
-            <label className="input-group-text" htmlFor="fileInput2">
-              image2
+            <label htmlFor="subtype" className="form-label mb-0 mt-2">
+              {" "}
+              Subtype
             </label>
+            <select
+              style={{ width: "100%", height: "45px", borderRadius: "5px" }}
+              name="subtype"
+              value={data.subtype}
+              onChange={handleChange}
+            >
+              <option value="Precious">Precious</option>
+              <option value="Semi-Precious">Semi-Precious</option>
+            </select>
+            <label htmlFor="weight" className="form-label  mt-4">
+              {" "}
+              Weight
+            </label>
+
             <input
-              type="file"
-              accept="image/*"
-              className="form-control"
-              id="fileInput2"
-              style={{ display: "none" }}
-              onChange={handleImageChange2}
+              type="text"
+              placeholder="Weight"
+              name="weight"
+              value={data.weight}
+              onChange={handleChange}
+              className="input"
             />
+            <label htmlFor="weight" className="form-label mb-0 mt-4">
+              {" "}
+              Units
+            </label>
+
+            <select
+              style={{ width: "100%", height: "45px", borderRadius: "5px" }}
+              name="units"
+              value={data.units}
+              onChange={handleChange}
+            >
+              <option value="Carat">Carat (metric; 1 carat=0.2gm)</option>
+            </select>
+            <label htmlFor="weight" className="form-label mb-0 mt-4">
+              {" "}
+              Shape
+            </label>
+
+            <input
+              type="text"
+              name="shape"
+              value={data.shape}
+              onChange={handleChange}
+              className="input"
+              placeholder="Shape"
+            />
+            <label htmlFor="weight" className="form-label mb-0 mt-4">
+              {" "}
+              Colour
+            </label>
+
+            <input
+              type="text"
+              name="colour"
+              value={data.colour}
+              onChange={handleChange}
+              className="input"
+              placeholder="Colour"
+            />
+            <label htmlFor="weight" className="form-label mb-0 mt-4">
+              {" "}
+              Description
+            </label>
+
+            <input
+              type="text"
+              name="description"
+              value={data.description}
+              onChange={handleChange}
+              className="input"
+              placeholder="Transparency, Hardness"
+            />
+            <label htmlFor="weight" className="form-label mb-0 mt-4">
+              {" "}
+              dimensions
+            </label>
+
+            <input
+              type="text"
+              name="dimensions"
+              value={data.dimensions}
+              onChange={handleChange}
+              className="input"
+              placeholder="dimensions"
+            />
+            <div className="input-group">
+              <label className="input-group-text" htmlFor="fileInput">
+                Choose File
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                className="form-control"
+                id="fileInput"
+                style={{ display: "none" }}
+                onChange={handleImageChange}
+              />
+            </div>
+            <div className="input-group">
+              <label className="input-group-text" htmlFor="fileInput2">
+                image2
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                className="form-control"
+                id="fileInput2"
+                style={{ display: "none" }}
+                onChange={handleImageChange2}
+              />
+            </div>
+            <button
+              type="submit"
+              style={{
+                backgroundColor: "rgba(244, 130, 31, 1)",
+                color: "white",
+              }}
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
           </div>
-          <button 
-            type="submit"
-            style={{ backgroundColor:"rgba(244, 130, 31, 1)", color: "white" }}
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+        </form>
       </center>
-      <div className="card  p-4 mb-4 mt-3" style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" }}>
+      <div
+        className="card  p-4 mb-4 mt-3"
+        style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" }}
+      >
         <h2 className="mb-2">All Inventory</h2>
-        <div className="table-responsive" style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)", borderRadius: "7px" }}>
+        <div
+          className="table-responsive"
+          style={{
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+            borderRadius: "7px",
+          }}
+        >
           <table className="table mt-3">
             <thead>
               <tr>
