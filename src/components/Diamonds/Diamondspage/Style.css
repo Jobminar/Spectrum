@@ -1,0 +1,102 @@
+.diamonds-display-container {
+  display: flex;
+  margin: 2rem 0rem;
+  
+}
+
+div.navbar {
+  background-color: #fec694;
+}
+
+.side-navbar {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 20px;
+  background-color: #fec694;/* Light orange background */
+}
+
+.profile-picture {
+  /* Add styling for profile picture if needed */
+}
+
+.navbar {
+  margin-top: 20px;
+  background-color: #fec694; /* Add spacing between profile picture and navbar items */
+}
+
+.nav-item {
+    margin: 0%;
+  padding: 10px;
+  color: #2b0a00 !important; /* Use !important to override any conflicting styles */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.nav-heading {
+  font-size: large;
+   margin-bottom: 10px;
+  background-color:#F4821F3B  !important; /* Use !important to override any conflicting styles */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Add styling for the dropdown menu */
+.dropdown-menu {
+  background-color: #f8a55c; /* Match the background color of the side-navbar */
+  width: 100%; /* Make the dropdown menu occupy full width */
+}
+
+.dropdown-item {
+  color: #000000;
+  background-color: rgb(255, 216, 182);
+}
+
+/* Add a border at the bottom of each nav-item for separation */
+.nav-item:not(:last-child) {
+  border-bottom: 1px solid #f4821f;
+}
+
+.text-wrapper {
+  /* Add any additional styling for text wrapper */
+}
+
+.diamonds-display-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.diamond-filters {
+  padding: 20px;
+  background-color: #e6e6e6;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #fff;
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 768px) {
+  .diamonds-display-container {
+    flex-direction: column;
+  }
+
+  .sidenavbar {
+    width: 100%; /* Take up the full width in smaller screens */
+    order: 1; /* Move to the top in smaller screens */
+    margin-bottom: 20px; /* Add space between side-nav and other components */
+  }
+
+  .diamond-filters {
+    order: 2; /* Move diamond filters to the middle in smaller screens */
+  }
+
+  .main-content {
+    order: 3; /* Move main content to the bottom in smaller screens */
+  }
+}

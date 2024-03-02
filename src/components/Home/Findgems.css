@@ -1,0 +1,47 @@
+.findyourpreference-section{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid black; */
+    margin: 2rem 0rem;
+}
+.fyp-heading{
+    font-family: Roboto;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.diamonds-filter{
+    margin: 1rem 0rem;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.zodiac-filter{
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid rgba(244, 130, 31, 1);
+}
+.name-filter{
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid rgba(244, 130, 31, 1);
+}
+.carousel-item{
+    display: flex;
+    
+}
+
+@media screen and (min-width: 360px) and (max-width: 600px){
+    .fyp-heading{
+        font-family: Roboto;
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0em;
+        text-align: center;
+    }
+}

@@ -1,0 +1,94 @@
+/* SearchBarPopup container */
+.search-bar-popup {
+    margin-top: 20px;
+    width:max-content; /* Adjust the top margin for spacing */
+  }
+  
+  /* Input field */
+  .form-control {
+    width: 100%; /* Make the input field full-width */
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: border-color 0.2s; /* Add a smooth transition for focus */
+  }
+  
+  .form-control:focus {
+    border-color: #007bff; /* Highlight border on focus */
+  }
+  
+  /* Button styling */
+  .btn {
+    margin-left: 10px;
+    padding:0;
+    margin-left: 1px;
+    width: 10px; /* Adjusted width for the buttons */
+    height: 30px; /* Adjust margin for spacing between buttons */
+  }
+  
+  /* Suggestion list */
+  .list-group {
+    padding: 12px;
+  }
+  
+  .suggestion-item {
+    padding: 10px;
+    margin-bottom: 8px; /* Adjust margin for spacing between suggestion items */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add a smooth transition for hover effect */
+  }
+  
+  .suggestion-item:hover {
+    background-color: #f8f9fa; /* Change background on hover */
+  }
+  
+  /* Result message */
+  .list-group p {
+    margin-top: 12px; /* Adjust margin for spacing between result message and suggestions */
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:orange
+  }
+  
+  /* Adjustments for small screens */
+  @media (max-width: 576px) {
+    .search-bar-popup {
+      margin-top: 10px;
+      width: max-content;
+      position: fixed;
+      top: 15%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      border: none;
+      z-index: 1000;
+    }
+  
+    .form-control {
+      font-size: 16px;
+    }
+  
+    .btn {
+      padding:0;
+      margin-left: 10px;
+      width: 10px; /* Adjusted width for the buttons */
+      height: 30px; /* Set height equal to width for square buttons */
+    }
+  }
+  
+  
+  
+
+  .empty-search-results {
+    overflow: auto;
+    min-height: 50px; /* Adjust the value as needed */
+  }
+  .backspace-prompt {
+    color: red; /* Adjust the color as needed */
+    font-size: 12px; /* Adjust the font size as needed */
+    margin-top: 4px; /* Adjust the margin as needed */
+  }
+  

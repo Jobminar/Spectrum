@@ -1,0 +1,65 @@
+/* Global Styles */
+
+  
+  /* Main Container */
+  .Jewelrymain-con {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    margin: 1rem 0rem;
+    padding: 0rem 2rem;
+  }
+  
+  /* Jewelry Item Styles */
+  .Jewelry-image {
+    width: 100%;
+    max-width: 13rem;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .Jewelryname {
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  .box {
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Header Styles */
+  h2 {
+    text-align: center;
+    margin: 1rem 0rem;
+  }
+  
+  /* Subpage Main Container */
+  .Jewelry-subage-maincon {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+    gap: 2rem;
+  }
+  
+  /* Responsive adjustments for Subpage */
+  @media (min-width: 768px) {
+    .Jewelry-subage-maincon {
+      grid-template-columns: 16% 80%;
+    }
+  }
+  
+  /* Hover effects */
+  .Jewelrymain-con div:hover .box {
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.35);
+  }
+  
+  .Jewelrymain-con div:hover .Jewelry-image {
+    transform: scale(1.05);
+  }
+  

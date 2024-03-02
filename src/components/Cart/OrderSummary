@@ -1,0 +1,164 @@
+// // import React from "react";
+
+// // class OrderSummary extends React.Component {
+// //   render() {
+// //     return (
+// //       <div className="cart-summary bg-light p-3 rounded">
+// //         <div className="order-summary">
+// //           <h4 className="text-primary">Order Summary</h4>
+// //           <p className="font-weight-bold">Total Items: {this.props.totalItems}</p>
+// //           <p className="font-weight-bold">
+// //             Total Cost: ${this.props.calculateTotal()}
+// //           </p>
+// //           <p>Shipping: Free</p>
+// //           <p>Estimated Tax: ${(this.props.calculateTotal() * 0.1).toFixed(2)}</p>
+// //         </div>
+
+// //         <div className="invoice-block">
+// //           <hr />
+// //           <p className="font-weight-bold" style={{ textAlign: "end", paddingRight: "35px" }}>
+// //             Grand Total: $
+// //             {(
+// //               parseFloat(this.props.calculateTotal()) +
+// //               parseFloat(this.props.calculateTotal()) * 0.1
+// //             ).toFixed(2)}
+// //           </p>
+// //           <div style={{ textAlign: "end" }}>
+// //             <button
+// //               className="btn btn-primary" style={{ width: "200px", paddingBottom: "30px" }}
+// //               onClick={() => this.props.handleProceedToCheckout()}
+// //             >
+// //               Proceed to Checkout
+// //             </button>
+// //           </div>
+// //         </div>
+// //       </div>
+// //     );
+// //   }
+// // }
+
+// // export default OrderSummary;
+
+// import React from "react";
+
+// class OrderSummary extends React.Component {
+//   render() {
+//     return (
+//       <div className="cart-summary bg-light p-3 rounded">
+//         <div className="order-summary">
+//           <h4 className="text-primary">Order Summary</h4>
+//           <p className="font-weight-bold">Total Items: {this.props.totalItems}</p>
+//           {/* <p className="font-weight-bold">
+//             Total Cost: ${this.props.calculateTotal()}
+//           </p> */}
+
+//           <p>Shipping: Free</p>
+//           <p>Estimated Tax: ${(this.props.calculateTotal() * 0.1).toFixed(2)}</p>
+//         </div>
+
+//         <div className="invoice-block">
+//           <hr />
+//           <p className="font-weight-bold" style={{ textAlign: "end", paddingRight: "35px" }}>
+//             Grand Total: $
+//             {(
+//               parseFloat(this.props.calculateTotal()) +
+//               parseFloat(this.props.calculateTotal()) * 0.1
+//             ).toFixed(2)}
+//           </p>
+//           <div style={{ textAlign: "end" }}>
+//             <button
+//               className="btn btn-primary" style={{ width: "200px", paddingBottom: "30px" }}
+//               onClick={() => this.props.handleProceedToCheckout()}
+//             >
+//               Proceed to Checkout
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// export default OrderSummary;
+
+// import React from "react";
+
+// class OrderSummary extends React.Component {
+//   render() {
+//     return (
+//       <div className="cart-summary bg-light p-3 rounded">
+//         <div className="order-summary">
+//           <h4 className="text-primary">Order Summary</h4>
+//           <p className="font-weight-bold">Total Items: {this.props.totalItems()}</p>
+//           <p className="font-weight-bold">
+//             Total Cost: ${this.props.calculateTotal()}
+//           </p>
+//           <p>Shipping: Free</p>
+//           <p>Estimated Tax: ${(this.props.calculateTotal() * 0.1).toFixed(2)}</p>
+//         </div>
+
+//         <div className="invoice-block">
+//           <hr />
+//           <p className="font-weight-bold" style={{ textAlign: "end", paddingRight: "35px" }}>
+//             Grand Total: $
+//             {(
+//               parseFloat(this.props.calculateTotal()) +
+//               parseFloat(this.props.calculateTotal()) * 0.1
+//             ).toFixed(2)}
+//           </p>
+//           <div style={{ textAlign: "end" }}>
+//             <button
+//               className="btn btn-primary" style={{ width: "200px", paddingBottom: "30px" }}
+//               onClick={() => this.props.handleProceedToCheckout()}
+//             >
+//               Proceed to Checkout
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// export default OrderSummary;
+
+import React from "react";
+
+class OrderSummary extends React.Component {
+  render() {
+    return (
+      <div className="cart-summary bg-light p-3 rounded">
+        <div className="order-summary">
+          <h4 className="text-primary">Order Summary</h4>
+          <p className="font-weight-bold">Total Items: {this.props.totalItems()}</p>
+          <p className="font-weight-bold">
+            Total Cost: ${this.props.calculateTotal()}
+          </p>
+          <p>Shipping: Free</p>
+          <p>Estimated Tax: ${(this.props.calculateTotal() * 0.1).toFixed(2)}</p>
+        </div>
+
+        <div className="invoice-block">
+          <hr />
+          <p className="font-weight-bold" style={{ textAlign: "end", paddingRight: "35px" }}>
+            Grand Total: $
+            {(
+              parseFloat(this.props.calculateTotal()) +
+              parseFloat(this.props.calculateTotal()) * 0.1
+            ).toFixed(2)}
+          </p>
+          <div style={{ textAlign: "end" }}>
+            <button
+              className="btn btn-primary" style={{ width: "200px", paddingBottom: "30px" }}
+              onClick={() => this.props.handleProceedToCheckout()}
+            >
+              Proceed to Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default OrderSummary;

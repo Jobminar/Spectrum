@@ -1,0 +1,52 @@
+.contact-con{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   row-gap: 1rem;
+   padding: 2rem;
+}
+h1{
+  text-align: center;
+  margin: 1rem;
+  
+    
+}
+.inputs{
+    width: 20rem;
+}
+.submit{
+    width: 20rem;
+  
+}
+.submit:hover{
+    background:#F4821F;
+    border-radius:10px;
+    color:white;
+}
+/* styles.css */
+
+/* Default border color */
+.inputs .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: brown;
+  }
+  
+  /* Border color on hover */
+  .inputs .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: brown;
+  }
+  
+  /* Border color when focused/clicked */
+  .inputs .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: brown;
+  }
+/* styles.css */
+
+.inputs .MuiFormLabel-root.Mui-focused {
+    color: brown;
+  }
+  
+  .inputs .MuiFormLabel-root {
+    color: brown;
+  }

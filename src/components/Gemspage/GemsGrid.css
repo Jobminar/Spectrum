@@ -1,0 +1,12 @@
+/* Orange Button */
+.btn-orange {
+    background-color: #FFA500;
+    color: #fff;
+    border: 1px solid #FFA500;
+  }
+  
+  .btn-orange:hover {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+  }
+  

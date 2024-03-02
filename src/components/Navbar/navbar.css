@@ -1,0 +1,26 @@
+.hrline {
+    width: 95%;
+    height: 0; /* Set the desired height here */
+    border-bottom: 2px solid rgba(244, 130, 31, 1); /* Creates a 3px height line */
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    /* Additional styles */
+}
+
+.mobile-head{
+    display: none;
+}
+
+@media screen and (min-width: 360px) and (max-width: 600px){
+    .mobile-head{
+        display: block;
+    }
+     .desk-head{
+        display: none;
+     }
+     .desk-product{
+        display: none;
+     }
+}

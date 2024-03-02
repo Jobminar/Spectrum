@@ -1,0 +1,61 @@
+.Jewelrymain-con {
+  display: flex;
+}
+
+.sidebar-container {
+  width: 200px;
+  padding: 20px;
+}
+
+.main-content-container {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.Jewelry-image {
+  width: 100%;
+  height: 70%; /* Adjust the height for the image */
+  object-fit: cover;
+  border-radius: 8px 8px 0 0; /* Round only the top corners */
+}
+
+.Jewelryname {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.description {
+  padding: 10px;
+  flex-grow: 1;
+  text-overflow: ellipsis; /* Display ellipsis for overflowing text */
+  overflow: hidden;
+}
+.loading-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

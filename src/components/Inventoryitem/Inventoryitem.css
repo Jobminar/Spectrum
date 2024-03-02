@@ -1,0 +1,30 @@
+.buti{
+    width: 18%;
+}
+@media screen and (max-width:400px) {
+    .buti{
+        width: 45%;
+    }
+}
+.icon{
+    width: 30px;
+    height: 30px;
+}
+@media screen and (max-width:400px) {
+    .icon{
+        width: 30px;
+        height: 30px;
+    }
+}
+.fon{
+    font-size: 12x;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+@media screen and (max-width:400px) {
+    .fon{
+        font-size: 16px;
+        font-weight: bold;
+    }
+}

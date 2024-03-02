@@ -1,0 +1,86 @@
+.filter-data h1 {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .filter-data {
+    background-color: rgb(226, 197, 172);
+  }
+  
+  .close-button {
+    background-color: yellow;
+  }
+  
+  .fa-solid {
+    background-color: 1.87px solid rgba(244, 130, 31, 0.33);
+  }
+  
+  #mydiv:active {
+    background-color: aqua;
+  }
+  
+  .sidenav-beads {
+    width: 13rem;
+    height: auto;
+    background-color: rgba(244, 130, 31, 0.23);
+  }
+  
+ /* beadssidebar.css */
+
+/* beadssidebar.css */
+
+.select-main {
+    width: 13rem;
+    height: 3rem;
+    border-bottom: 1px solid rgba(244, 130, 31, 0.33);
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    padding: 0rem 1rem;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .options-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align options center horizontally */
+    row-gap: 0.5rem;
+  }
+  
+  .options-main div {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center; /* Align items vertically */
+    cursor: pointer;
+  }
+  
+  .options-main input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .option-label {
+    font-size: 16px;
+  }
+  
+  .selected-option {
+    font-weight: bold;
+    color: #ff5722;
+  }
+  
+  .options-main div:hover {
+    background-color: rgba(255, 165, 0, 0.2);
+  }
+  
+  .options-main div:active {
+    background-color: rgba(255, 165, 0, 0.4);
+  }
+  
+  

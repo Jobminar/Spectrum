@@ -1,0 +1,57 @@
+.main-nav-section{
+    width: 100%;
+    height: auto;
+    display: flex;
+     padding: 0rem 3rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     /* margin-top: 2rem; */
+     text-align: center;
+     margin-top: 1rem;
+     /* border: 1px solid black; */
+     margin-bottom: 0rem;
+}
+.main-sub-nav{
+    cursor: pointer;
+    
+}
+.profile{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.icons{
+    width: 1rem;
+    height: 1rem;
+}
+#head-extra-class{
+    margin-top: 1.1rem;
+
+}
+
+/* Add these styles to your existing CSS file */
+.search-bar-popup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: none;
+    z-index: 1000;
+  }
+  
+  .search-bar-popup input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:1px solid orange
+  }
+  
+  .search-bar-popup button {
+    padding: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+

@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Diamond Necklace",
+        "category": "Necklaces",
+        "price": 2500.00,
+        "image": "https://img.freepik.com/free-photo/shiny-gemstone-necklace-reflects-elegance-glamour-generated-by-ai_188544-13941.jpg?t=st=1700903079~exp=1700906679~hmac=5a57ee7581ec96be3c608f25c81cd8111a9819b3ff9afeef151cb2c5b9d4883b&w=1060"
+    },
+    {
+        "id": 2,
+        "name": "Gold Bracelet",
+        "category": "Bracelets",
+        "price": 1200.00,
+        "image": "https://img.freepik.com/premium-photo/gold-bracelet-jewelry-white-isolated-background_3544-1157.jpg?w=740"
+    },
+    {
+        "id": 3,
+        "name": "Pearl Earrings",
+        "category": "Earrings",
+        "price": 800.00,
+        "image": "https://img.freepik.com/premium-vector/realistic-earrings-jewelry-accessories-icons-set_100011-421.jpg?w=900"
+    },
+    {
+        "id": 4,
+        "name": "Sapphire Ring",
+        "category": "Rings",
+        "price": 1800.00,
+        "image": "https://img.freepik.com/free-photo/still-life-object_1122-1945.jpg?w=996&t=st=1700908646~exp=1700909246~hmac=4cf9555ef2caddeae7cc62607f5aad886376922b990323ae00cedc2738a2e864"
+    },
+    {
+        "id": 5,
+        "name": "Emerald Brooch",
+        "category": "Brooches",
+        "price": 1500.00,
+        "image": "https://img.freepik.com/free-photo/emerald-gemstone-earring-collage_23-2150714275.jpg?w=740&t=st=1700908700~exp=1700909300~hmac=1da4578608966331e337920dbf485f48464c80d6687e7a048b9ed47701debfaf"
+    }
+]

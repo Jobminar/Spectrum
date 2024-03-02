@@ -1,0 +1,102 @@
+/* Gems Display Styles */
+
+.gems-display-container {
+    display: flex;
+}
+
+.side-nav {
+    width: 200px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    text-align: start;
+}
+
+.gems-display-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.gems-search {
+    padding: 20px;
+    background-color: #e6e6e6;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Button Styles */
+
+.btn {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* Primary Button */
+
+.btn-primary {
+    background-color: #ff7700;
+    color: #fff;
+    border: 1px solid rgb(255, 145, 0);
+    font-size: 14px; /* Default font size */
+    padding: 10px 15px; /* Default padding */
+}
+
+.btn-primary:hover {
+    background-color: #b36500;
+    border-color: #b38900;
+}
+
+/* Secondary Button */
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: 1px solid #6c757d;
+    font-size: 14px; /* Default font size */
+    padding: 10px 15px; /* Default padding */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Pagination Button */
+
+.pagination-btn {
+    background-color: #ff6f00;
+    color: #fff;
+    border: 1px solid #ff5500d0;
+    font-size: 25px; /* Smaller font size */
+    padding: 1px; /* Smaller padding */
+}
+
+.pagination-btn:hover {
+    background-color: #b35400;
+    border-color: #b38900;
+}
+
+/* Gem Card Styles */
+
+.gem-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.gem-image {
+    max-height: 50px;
+    object-fit: contain;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 14px;
+}

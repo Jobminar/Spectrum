@@ -1,0 +1,88 @@
+.gems-cate-section{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 2rem 0rem;
+    margin-top: 1rem;
+}
+.gems-headding-sub-section h1{
+    text-align: left;
+    border-right: 1px solid rgba(244, 130, 31, 1);
+    padding-left: 1rem;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+}
+.gems-routing-section{
+    padding: 0rem 2rem;
+    /* border: 1px solid green; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.gems-cate-sub-section img{
+     width: 5rem;
+     height: 5rem;
+}
+.gems-cate-sub-section p{
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    margin-top: 1rem;
+    
+
+}
+
+
+/* Responsive */
+
+@media (min-width: 360px) and (max-width: 600px) {
+    .gems-cate-section{
+        /* border: 1px solid black; */
+       
+        display: grid;
+        grid-template-columns: 100%;
+        padding: 1rem 0rem;
+    }
+    .gems-headding-sub-section{
+        text-align: center;
+        font-family: inter;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 0em;
+    
+
+        
+    }
+    .gems-routing-section{
+        padding: 0rem 0.5rem;
+        /* border: 1px solid green; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        column-gap: 0.8rem;
+        margin-top: 1rem;
+    }
+    .gems-cate-sub-section img{
+         width: 3rem;
+         height: 3rem;
+    }
+    .gems-cate-sub-section p{
+        font-family: Roboto;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0em;
+    }
+    
+
+}

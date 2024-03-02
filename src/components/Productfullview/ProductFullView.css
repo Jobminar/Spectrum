@@ -1,0 +1,81 @@
+/* ProductFullView.css */
+
+#ProductViewContainer {
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-details-body {
+    width: 100%;
+  }
+  
+  /* Adjustments for carousel image size on smaller screens */
+  .product-carousel .carousel-inner img {
+    max-height: 300px; /* Adjust the max-height as needed */
+    width: auto;
+    margin: 0 auto;
+  }
+  
+  /* Additional styles for tiny images */
+  .thumbnail-image {
+    max-height: 150px; /* Adjust the max-height for thumbnail images */
+    border-radius: 8px; /* Add border radius for a rounded appearance */
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  /* Add a shadow effect on hover for thumbnail images */
+  .thumbnail-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styles for product details card */
+  .product-details-card {
+    border-radius: 12px; /* Add border radius for a rounded card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  /* Add a shadow effect on hover for the product details card */
+  .product-details-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styles for the container */
+  .container {
+    background-color: #f9f9f9; /* Set a light background color for the container */
+    padding: 20px;
+    border-radius: 16px; /* Add border radius for a rounded container */
+  }
+  
+  /* Adjust the text color for better visibility */
+  .text-orange {
+    color: #ff8c00; /* Orange color for text */
+  }
+  
+  /* Adjust the spacing for better alignment */
+  .mb-0 {
+    margin-bottom: 0;
+  }
+  
+  .mb-3 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 2rem;
+  }
+  
+  /* Responsive styling for small screens */
+  @media (max-width: 768px) {
+    .product-carousel .carousel-inner img {
+      max-height: 200px; /* Adjust the max-height for smaller screens */
+    }
+  
+    .thumbnail-image {
+      max-height: 100px; /* Adjust the max-height for smaller screens */
+    }
+  }
+  

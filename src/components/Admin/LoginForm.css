@@ -1,0 +1,123 @@
+/* LoginForm.css */
+
+.login-form-card {
+    display: flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 800px;
+    height: 400px; /* Set the desired height */
+    margin: 1em auto; /* Center the card horizontally */
+    background: rgb(255, 255, 255);
+    /* Add an orange border */
+  }
+  
+  
+  
+  .image-box {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    margin: 1px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-container {
+    width: 50%;
+    height: 25%;
+    background: white url('../../assets/images/logo-admin.png') center/contain no-repeat;
+    background-size: contain; /* Use 'contain' for responsive background sizing */
+  }
+  
+  
+  
+  
+  .login-form-container.smart-card {
+    max-width: 400px; /* Set the maximum width as needed */
+    margin: 20px auto; /* Center the card horizontally and add margin for spacing */
+    padding: 20px; /* Add padding for spacing inside the card */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box-shadow for a subtle elevation effect */
+    background: #fff; /* Set background color */
+  }
+  
+  
+  
+  .login-form-container {
+    width: 70%;
+    padding: 20px;
+    background: rgb(239, 99, 12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  h1 {
+    color: #333; /* Updated header color */
+  }
+  
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* OTP container and inputs */
+  .otp-container {
+    margin-top: 10px;
+  }
+  
+  .otp-inputs {
+    display: flex;
+  }
+  
+  .otp-inputs input {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0 5px;
+  }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .login-form-card {
+      flex-direction: column;
+    }
+  
+    .image-container {
+      width: 100%;
+    }
+  
+    .login-form-container {
+      width: 100%;
+    }
+  }
+  

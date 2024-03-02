@@ -1,0 +1,53 @@
+/* Styles for the profile popup */
+.modal-dialog {
+    max-width: 300px; /* Adjust the maximum width as needed */
+    position: relative;
+    z-index: 1050; /* Adjust z-index as needed */
+    margin: 2rem auto; /* Add margin to center vertically on desktop */
+  }
+  
+  .modal-content {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a card-like appearance */
+    padding: 1.5rem; /* Adjust padding as needed */
+    border: 1px solid #ff8c00; /* Thin orange border */
+    background-color: #f8f9fa;
+  }
+  
+  .modal-header {
+    background-color: #f8f9fa; /* Background color for the header */
+    padding: 1rem; /* Adjust padding as needed */
+  }
+  
+  .modal-title {
+    color: #dc3545; /* Text color for the title */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .modal-body {
+    text-align: center;
+    background-color: #f8f9fa; 
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 576px) {
+    .modal-dialog {
+      max-width: 100%; /* Full width on small screens */
+      margin: 1rem auto; /* Adjust margin as needed */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1050; /* Adjust z-index as needed */
+      overflow: auto; /* Enable scrolling for small screens */
+    }
+  
+    .modal-content {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a card-like appearance */
+      padding: 1rem; /* Adjust padding as needed */
+    }
+  
+    .modal-header {
+      padding: 0.5rem; /* Adjust padding as needed */
+    }
+  }
+  

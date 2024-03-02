@@ -1,0 +1,21 @@
+#OrdersWindow {
+  /* Your existing styles here */
+
+  /* Default styles for larger screens */
+  max-width: 100%;
+  margin-left: 10rem;
+  margin-right: 0;
+
+  /* Media query for medium-sized screens (tablets, smaller laptops) */
+  @media (max-width: 1200px) {
+    max-width: 85%;
+    margin-left: auto;
+  }
+
+  /* Media query for smaller screens (mobile devices) */
+  @media (max-width: 768px) {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
